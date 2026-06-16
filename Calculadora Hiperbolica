@@ -45,32 +45,30 @@ public class CalculadoraTrigonometricaHiperbolica {
                 continue;
             }
 
-            System.out.print("Ingrese el valor del ángulo α: ");
+            System.out.print("Ingrese el valor del ángulo α (en grados): ");
             //Validar que el valor ingresado sea numérico (no letras ni signos)
             while (!scanner.hasNextDouble()) {
                 System.out.print("Debe ingresar un número válido: ");
                 scanner.next(); //Eliminar el valor inválido
             }
-            double valor = scanner.nextDouble(); //Guardar el valor como double
-
-            // Nota: sinh, cosh y tanh están definidas para todos los números reales,
-            // por lo que aquí no se requiere validar el dominio (a diferencia de arcsin/arccos)
+            double valor = scanner.nextDouble(); //Guardar el valor como double (en grados)
+            double valorRadianes = Math.toRadians(valor); //Convertir de grados a radianes <-- línea agregada
 
             //Declarar variables para más adelante
             double resultado = 0;
             String funcion = "";
             switch (operacion) {
                 case 1:
-                    resultado = senoHiperbolico(valor);
-                    funcion = "sinh(" + valor + ")";
+                    resultado = senoHiperbolico(valorRadianes);
+                    funcion = "sinh(" + valor + "°)";
                     break;
                 case 2:
-                    resultado = cosenoHiperbolico(valor);
-                    funcion = "cosh(" + valor + ")";
+                    resultado = cosenoHiperbolico(valorRadianes);
+                    funcion = "cosh(" + valor + "°)";
                     break;
                 case 3:
-                    resultado = tangenteHiperbolica(valor);
-                    funcion = "tanh(" + valor + ")";
+                    resultado = tangenteHiperbolica(valorRadianes);
+                    funcion = "tanh(" + valor + "°)";
                     break;
             }
             System.out.printf("Resultado: %s = %.4f%n", //Imprimir resultado de la operación
