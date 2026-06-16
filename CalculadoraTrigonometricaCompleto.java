@@ -161,4 +161,3 @@ public class CalculadoraTrigonometricaCompleto {
         scanner.close();
     }
 }
-// finalizada
